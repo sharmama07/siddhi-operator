@@ -24,82 +24,82 @@
 
 package v1alpha2
 
-import (
-	spec "github.com/go-openapi/spec"
-	common "k8s.io/kube-openapi/pkg/common"
-)
+// import (
+// 	spec "github.com/go-openapi/spec"
+// 	common "k8s.io/kube-openapi/pkg/common"
+// )
 
-func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
-	return map[string]common.OpenAPIDefinition{
-		"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcess":       schema_pkg_apis_siddhi_v1alpha2_SiddhiProcess(ref),
-		"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessSpec":   schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessSpec(ref),
-		"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessStatus": schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessStatus(ref),
-	}
-}
+// func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
+// 	return map[string]common.OpenAPIDefinition{
+// 		"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcess":       schema_pkg_apis_siddhi_v1alpha2_SiddhiProcess(ref),
+// 		"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessSpec":   schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessSpec(ref),
+// 		"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessStatus": schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessStatus(ref),
+// 	}
+// }
 
-func schema_pkg_apis_siddhi_v1alpha2_SiddhiProcess(ref common.ReferenceCallback) common.OpenAPIDefinition {
-	return common.OpenAPIDefinition{
-		Schema: spec.Schema{
-			SchemaProps: spec.SchemaProps{
-				Description: "SiddhiProcess is the Schema for the siddhiprocesses API",
-				Properties: map[string]spec.Schema{
-					"kind": {
-						SchemaProps: spec.SchemaProps{
-							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
-							Type:        []string{"string"},
-							Format:      "",
-						},
-					},
-					"apiVersion": {
-						SchemaProps: spec.SchemaProps{
-							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
-							Type:        []string{"string"},
-							Format:      "",
-						},
-					},
-					"metadata": {
-						SchemaProps: spec.SchemaProps{
-							Ref: ref("k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"),
-						},
-					},
-					"spec": {
-						SchemaProps: spec.SchemaProps{
-							Ref: ref("github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessSpec"),
-						},
-					},
-					"status": {
-						SchemaProps: spec.SchemaProps{
-							Ref: ref("github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessStatus"),
-						},
-					},
-				},
-			},
-		},
-		Dependencies: []string{
-			"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessSpec", "github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
-	}
-}
+// func schema_pkg_apis_siddhi_v1alpha2_SiddhiProcess(ref common.ReferenceCallback) common.OpenAPIDefinition {
+// 	return common.OpenAPIDefinition{
+// 		Schema: spec.Schema{
+// 			SchemaProps: spec.SchemaProps{
+// 				Description: "SiddhiProcess is the Schema for the siddhiprocesses API",
+// 				Properties: map[string]spec.Schema{
+// 					"kind": {
+// 						SchemaProps: spec.SchemaProps{
+// 							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+// 							Type:        []string{"string"},
+// 							Format:      "",
+// 						},
+// 					},
+// 					"apiVersion": {
+// 						SchemaProps: spec.SchemaProps{
+// 							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+// 							Type:        []string{"string"},
+// 							Format:      "",
+// 						},
+// 					},
+// 					"metadata": {
+// 						SchemaProps: spec.SchemaProps{
+// 							Ref: ref("k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"),
+// 						},
+// 					},
+// 					"spec": {
+// 						SchemaProps: spec.SchemaProps{
+// 							Ref: ref("github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessSpec"),
+// 						},
+// 					},
+// 					"status": {
+// 						SchemaProps: spec.SchemaProps{
+// 							Ref: ref("github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessStatus"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		},
+// 		Dependencies: []string{
+// 			"github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessSpec", "github.com/siddhi-io/siddhi-operator/pkg/apis/siddhi/v1alpha2.SiddhiProcessStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
+// 	}
+// }
 
-func schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessSpec(ref common.ReferenceCallback) common.OpenAPIDefinition {
-	return common.OpenAPIDefinition{
-		Schema: spec.Schema{
-			SchemaProps: spec.SchemaProps{
-				Description: "SiddhiProcessSpec defines the desired state of SiddhiProcess",
-				Properties:  map[string]spec.Schema{},
-			},
-		},
-		Dependencies: []string{},
-	}
-}
+// func schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessSpec(ref common.ReferenceCallback) common.OpenAPIDefinition {
+// 	return common.OpenAPIDefinition{
+// 		Schema: spec.Schema{
+// 			SchemaProps: spec.SchemaProps{
+// 				Description: "SiddhiProcessSpec defines the desired state of SiddhiProcess",
+// 				Properties:  map[string]spec.Schema{},
+// 			},
+// 		},
+// 		Dependencies: []string{},
+// 	}
+// }
 
-func schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
-	return common.OpenAPIDefinition{
-		Schema: spec.Schema{
-			SchemaProps: spec.SchemaProps{
-				Description: "SiddhiProcessStatus defines the observed state of SiddhiProcess",
-				Properties:  map[string]spec.Schema{},
-			},
-		},
-		Dependencies: []string{},
-	}
-}
+// func schema_pkg_apis_siddhi_v1alpha2_SiddhiProcessStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+// 	return common.OpenAPIDefinition{
+// 		Schema: spec.Schema{
+// 			SchemaProps: spec.SchemaProps{
+// 				Description: "SiddhiProcessStatus defines the observed state of SiddhiProcess",
+// 				Properties:  map[string]spec.Schema{},
+// 			},
+// 		},
+// 		Dependencies: []string{},
+// 	}
+// }
