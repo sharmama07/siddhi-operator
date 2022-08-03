@@ -39,6 +39,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
+	"k8s.io/apimachinery/pkg/api/resource"
 )
 
 // KubeClient performs CRUD operations in the K8s cluster
@@ -396,6 +397,16 @@ func (k *KubeClient) CreateOrUpdateDeployment(
 							ImagePullPolicy: ipp,
 							ReadinessProbe:  &readyProbe,
 							LivenessProbe:   &liveProbe,
+							Resources: corev1.ResourceRequirements{
+              					Requests: corev1.ResourceList{
+              						corev1.ResourceCPU: *resource.NewQuantity(1, resource.BinarySI),
+              						corev1.ResourceMemory: *resource.NewQuantity(1*GigaByte, resource.BinarySI),
+              					},
+              					Limits: corev1.ResourceList{
+                          corev1.ResourceCPU: *resource.NewQuantity(1, resource.BinarySI),
+                          corev1.ResourceMemory: *resource.NewQuantity(1*GigaByte, resource.BinarySI),
+                        },
+              				}
 						},
 					},
 					ImagePullSecrets: secrets,
